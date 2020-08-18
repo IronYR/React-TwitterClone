@@ -1,0 +1,29 @@
+.right{
+    /* color: black; */
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    background-color: black;
+}
+
+.input{
+    border-radius: 50px;
+    display: inline-block;
+    height: 40px;
+    width: 80%;
+    margin-top: 10px;
+    background-color: rgb(41, 36, 36);
+    outline: none;
+    border: none;
+    color: grey;
+}
+
+.input:focus{
+    background-color: black;
+    /* outline: none; */
+    border: 1px blue solid;
+    color: white;
+}
+.input::placeholder{
+    text-align: center;
+}

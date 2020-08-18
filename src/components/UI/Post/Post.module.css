@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.post{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100px;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+    padding: 10px;
+    border: 1px rgb(133, 131, 131) solid;
+    border-right: none;
+    border-left: none;
+    transition: 0.1s all ease-in;
+}
+.post:hover{
+    background-color: rgb(46, 44, 44);
+}
+.post .img{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    min-width: 10%;
+}
+
+.post .img img{
+    border-radius: 50px;
+    width: 49px;
+    height: 49px;
+    position: relative;
+    top: 0;
+}
+.post .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    top: 0;
+}
+.post .top .poster span{
+    margin-right: 5px;
+}
+.post .top .poster .name{
+    font-weight: bold;
+}
+.post .top .poster .username, .poster .time{
+    color: #ccc;
+    font-size: 0.8rem;
+}
+.post .main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    min-width: 90%;
+    margin-left: 5px;
+}
+.post .content{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100%;
+    /* min-width: 80%; */
+    width: 100%;
+}
+.post .content .postDesc{
+    text-align: start;
+    margin-bottom: 10px;
+}
+/* .post .options{
+    height: 100%;
+    max-width: 20%;
+} */

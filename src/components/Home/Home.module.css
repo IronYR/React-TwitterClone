@@ -1,0 +1,17 @@
+.home{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "left post right" ;
+}
+
+Left{
+    grid-area: "left";
+}
+Posts{
+    grid-area: "post";
+}
+Right{
+    grid-area: "right";
+    
+}
