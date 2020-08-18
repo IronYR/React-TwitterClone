@@ -5,7 +5,7 @@ export default function Post(props) {
     return (
         <div className={classes.post}>
             <div className={classes.img}>
-                <img src="https://th.bing.com/th/id/OIP.HTvPkLCDOlAYQX-sh8oGogAAAA?w=146&h=150&c=7&o=5&dpr=1.25&pid=1.7"/>
+                <img src="https://th.bing.com/th/id/OIP.HTvPkLCDOlAYQX-sh8oGogAAAA?w=146&h=150&c=7&o=5&dpr=1.25&pid=1.7" alt=""/>
             </div>
             <div className={classes.main}>
                 <div className={classes.top}>

@@ -1,12 +1,11 @@
 import React from 'react'
 import classes from './LeftBar.module.css'
 import Twitter from '../../../images/icons8-twitter.svg'
-import HomeIcon from '../../../images/place.svg'
 export default function LeftBar() {
     return (
         <div className={classes.Left}>
                 <a href="#">
-                    <img src={Twitter}></img>
+                    <img src={Twitter} alt=""></img>
                 </a>
                 <a href="#">
                  d icon
