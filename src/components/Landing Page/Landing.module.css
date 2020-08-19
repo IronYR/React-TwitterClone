@@ -72,7 +72,7 @@
     align-items: center;
     flex-direction: column;
 }
-.right .rightContainer .buttons button{
+.right .rightContainer .buttons .signup, .login{
     width:100%;
     line-height: 1;
     font-weight: bold;
@@ -87,7 +87,7 @@
     cursor: pointer;
     transition: all 0.1s ease-in;
 }
-.right .rightContainer .buttons button:nth-of-type(1):hover{
+.right .rightContainer .buttons .signup:hover{
     background-color: rgba(29,100,255,1.00);
 
 } 
@@ -95,4 +95,39 @@
     background-color: white;
     color: rgba(29,161,242,1.00);
     border: 1px solid rgba(29,161,242,1.00);
+}
+
+@media screen and (max-width: 1000px){
+    .landing{
+        flex-direction: column;
+    }
+    .right{
+        order: 1;
+        width: 100%;
+        height: 70%;
+        
+
+    }
+    .left{
+        order: 2;
+        width: 100%;
+        height: 30%;
+    }
+    .right .rightContainer{
+        /* background-color: chartreuse; */
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 510px){
+    .right .rightContainer {
+        width: 100%;
+    }
+    .left p{
+        font-size: 1.2rem;
+    }
 }

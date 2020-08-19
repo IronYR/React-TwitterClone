@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Link} from "react-router-dom"
 import classes from './Landing.module.css'
 import Twitter from '../../images/twitter-logo.png'
 export default function Landing() {
@@ -18,14 +19,14 @@ export default function Landing() {
                         <img src={Twitter} alt=""></img>
                     </div>
                     <div className={classes.text}>
-                        See what's happening in<br></br> the world right now.
+                        See what's happening in the world right now.
                     </div>
                     <div className={classes.join}>
                         Join Twitter Today
                     </div>
                     <div className={classes.buttons}>
-                        <button>Sign up</button>
-                        <button className={classes.login}>Log in</button>
+                        <Link to="/signup" className={classes.signup}>Sign up</Link>
+                        <Link to="/login" className={classes.login}>Log in</Link>
                     </div>
                 </div>
                 
