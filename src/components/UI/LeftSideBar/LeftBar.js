@@ -8,7 +8,7 @@ export default function LeftBar() {
                     <img src={Twitter} alt=""></img>
                 </a>
                 <a href="#">
-                 d icon
+                Home icon
                 </a>
                 <a href="#">Notification</a>
                 <a href="#">User icon</a>

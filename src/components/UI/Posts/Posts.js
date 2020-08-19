@@ -25,14 +25,14 @@ export default function Posts() {
     //     return new Date(current - before).getMinutes;
     // }
     return (
-        <div style={{background:"black", border: "1px solid grey"}}>
+        <div style={{background:"black", border: "1px solid grey", maxWidth: "100%"}}>
             <Header title="Home" showBackButton={false}/>
             <CreatePost></CreatePost>
             {posts.map(post=>{
                 let time = new Date(post.timePostCreated).toLocaleString();
                 // let time = new Date(current - postCreated).getMinutes();
                 
-                return <Post key={Math.random()} name={post.posterName} username={post.username} time={time} desc={post.postDesc} likes={post.likes} retweets={post.retweets}></Post>
+                return <Post key={Math.random()} name={post.posterName} username={post.username} time={time} desc={post.postDesc} likes={post.likes} retweets={post.retweets} postID={post.postID} isLiked={post.isLiked}></Post>
             })}
         </div>
     )
