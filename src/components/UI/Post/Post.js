@@ -9,9 +9,10 @@ export default function Post(props) {
     function onClick(){
         if(likes == props.likes){
             if(props.isLiked){
-                setLikes(likes--)
+            setLikes(likes--)
             setLiked(false)
             likesHandle()
+            return ;
             }
             setLikes(likes++);
             setLiked(true);
@@ -26,7 +27,7 @@ export default function Post(props) {
         
     }
     function likesHandle(){
-        if(!liked || liked){
+        if(!liked){
             fetch("http://localhost:5000/likes", {
                 method: "POST",
                 headers: {
@@ -36,12 +37,35 @@ export default function Post(props) {
                 body: JSON.stringify({
                     likes: likes,
                     postID: props.postID,
-                    isLiked: liked
+                    isLiked: true
                 })
             }).then(res=>{
                 return res.json()
             }).then(result=>{
                 console.log(result)
+                window.location.reload()
+            }).catch(err=>{
+                console.log(err)
+            })
+        }
+        if(liked){
+            fetch("http://localhost:5000/likes", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    likes: likes,
+                    postID: props.postID,
+                    isLiked: false
+                })
+            }).then(res=>{
+                return res.json()
+            }).then(result=>{
+                console.log(result)
+                window.location.reload()
+
             }).catch(err=>{
                 console.log(err)
             })
