@@ -5,13 +5,32 @@
     grid-template-areas: "left post right" ;
 }
 
-Left{
+.Left{
     grid-area: "left";
 }
-Posts{
+.Posts{
     grid-area: "post";
 }
-Right{
+.Right{
     grid-area: "right";
     
+}
+
+@media screen and (max-width: 1015px){
+    .home{
+        grid-template-columns: 1.5fr 2fr fr;
+        grid-template-areas: "left post" ;
+    }
+    /* Right{
+        display: none;
+    } */
+}
+
+@media screen and (max-width:660px){
+    .home{
+        grid-template-columns: 0.5fr 2.5fr;
+    }
+    Posts{
+        margin-right: 10px;
+    }
 }

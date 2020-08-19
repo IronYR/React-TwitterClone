@@ -4,8 +4,9 @@
     max-width: 26vw;
     max-height: 100vh;
     min-height: 100vh;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-end;
+    float: right;
     /* background-color: rgb(20,23,26); */
     background-color: black;
     overflow: hidden;
@@ -21,12 +22,17 @@
 
 a{
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 19px;
     margin: 20px auto;
     color: white;
 }
 a:hover{
-    color: #ccc;
+    color: rgb(29, 161, 242);
+}
+
+.twitter{
+    width: 30px;
+    height: 30px;
 }
 @media screen and (max-width:700px) {
     a{

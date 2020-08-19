@@ -5,7 +5,7 @@ export default function LeftBar() {
     return (
         <div className={classes.Left}>
                 <a href="#">
-                    <img src={Twitter} alt=""></img>
+                    <img src={Twitter} alt="" className={classes.twitter}></img>
                 </a>
                 <a href="#">
                 Home icon
