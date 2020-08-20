@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import classes from './CreatePost.module.css'
-export default function CreatePost() {
+export default function CreatePost(props) {
+    let token = localStorage.getItem("token");
     let [postDesc, setPostDesc] = useState({desc: "Whats happening?"});
     const tx = document.getElementsByTagName('textarea');
     for (let i = 0; i < tx.length; i++) {
@@ -18,10 +19,11 @@ export default function CreatePost() {
             headers: {
                 //@todo: fill this up and send the data
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                "Authorization": 'Bearer ' + token
             },
             body: JSON.stringify({
-                postContent: postDesc.desc
+                postContent: postDesc.desc,
             })
         }).then(res=>{
             return res.json()

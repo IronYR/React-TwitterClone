@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './LeftBar.module.css'
 import Twitter from '../../../images/icons8-twitter.svg'
-export default function LeftBar() {
+export default function LeftBar(props) {
     return (
         <div className={classes.Left}>
                 <a href="#">
@@ -14,7 +14,7 @@ export default function LeftBar() {
                 <a href="#">User icon</a>
                 <a href="#">Create Post</a>
                 <a href="#">User Pic</a>
-            
+                <button onClick={props.logout}>LogOut</button>
         </div>
     )
 }
