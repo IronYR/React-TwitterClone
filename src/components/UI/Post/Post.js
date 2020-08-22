@@ -4,48 +4,112 @@ import Like from '../../../images/iconfinder_jee-04_2239656.svg';
 import Retweet from '../../../images/retweet.svg'
 import { Link } from 'react-router-dom';
 export default function Post(props) {
+    let currentUser = localStorage.getItem("userID");
     function onLike(){
-        fetch("http://localhost:5000/likes", {
-            method: "POST",
+        fetch(`http://localhost:5000/likes?postID=${props.postID}&userID=${currentUser}`, {
+            method: "GET",
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                postID: props.postID,
-                userID: props.userID
-            })
+            }
         }).then(res=>{
-            props.liked();
 
             return res.json()
         }).then(result=>{
+            let {post, user} = result;
             console.log(result)
-            // window.location.reload()
+            if(post.isLikedBy.includes(user._id)){
+                let index = post.isLikedBy.findIndex(id=> id.toString()==user._id.toString());
+                let newPost = post.isLikedBy.filter(id=> id.toString() != user._id.toString());
+                // let updatedPost = {...post};
+                // updatedPost.isLikedBy = newIsLikedBy;
+                console.log(newPost)
+                console.log(index);
+                console.log(post);
+                console.log("new post", newPost)
+                // delete post.isLikedBy[index];
+                // let newIsLikedBy = post.isLikedBy.splice(index,1);
+                post.isLikedBy = newPost;
+                post.likes--;
+                console.log("post after likes dedeucted", post)
+                if(user.likedPosts.length>0){
+                    let ind = user.likedPosts.findIndex(id=> id==post._id.toString());
+                    let newLikedPosts = user.likedPosts.splice(ind, 1);
+                    user.likedPosts = newLikedPosts;
+                }
+                // console.log("user index", ind)
+                // delete user.likedPosts[ind]
+                console.log( "user after deleting",user)
+                fetch("http://localhost:5000/likes", {
+                    method: "POST",
+                    headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        newUser: user,
+                        newPost: post
+                    })
+                }).then(res=>{
+                    return res.json()
+                }).then(result=>{
+                    console.log(result);
+                    window.location.reload()
+                })
+                                
+            } else{
+                 post.isLikedBy.push(user._id);
+                 post.likes++;
+                 user.likedPosts.push(post._id);
+                 console.log(user, post)
+                 fetch("http://localhost:5000/likes", {
+                    method: "POST",
+                    headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        newUser: user,
+                        newPost: post
+                    })
+                }).then(res=>{
+                    return res.json()
+                }).then(result=>{
+                    console.log(result);
+                    props.liked();
+                })
+             }
+
+            console.log(result)
+            window.location.reload()
         }).catch(err=>{
             console.log(err)
         })
 
     }
     return (
-        <Link to="/home/:id">
             <div className={classes.post}>
                 <div className={classes.img}>
+                    <Link to={"/"+props.username} >
                     <img src={props.userImg} alt=""/>
+
+                    </Link>
                 </div>
                 <div className={classes.main}>
-                    <div className={classes.top}>
-                        <div className={classes.poster}>
-                        <span className={classes.name}>{props.name}</span>
-                        <span className={classes.username}>@{props.username}</span>
-                        <span className={classes.time}>{props.time}</span>
+                    <Link to={"/" + props.username} className={classes.mainLink}>
+                        <div className={classes.top}>
+                            <div className={classes.poster}>
+                                <span className={classes.name}>{props.name}</span>
+                                <span className={classes.username}>@{props.username}</span>
+                                <span className={classes.time}>{props.time}</span>
+                            </div>
                         </div>
-                        <div className={classes.options}>
-                            <span>V</span>
-                        </div>
-                    </div>
+                    </Link>
                     <div className={classes.content}>
-                        <div className={classes.postDesc}>{props.desc}</div>
+                        <Link to={"/" + props.username + "/"+ props.postID} className={classes.contentLink}>
+                            <div className={classes.postDesc}>{props.desc}</div>
+                        </Link>
+                
                         <div className={classes.interaction}>
                             {/* <span onClick={onClick}><img className={classes.interactionIcons} src={Like} alt="" id={classes.like}/></span> */}
                             <button onClick={onLike}>Like</button>
@@ -57,7 +121,6 @@ export default function Post(props) {
                     </div>
 
             </div>
-        </Link>
     )
 }
 

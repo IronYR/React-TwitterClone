@@ -50,10 +50,10 @@ export default function Posts(props) {
         console.log(postCreated)
         setPostCreated(true)
     }
-    function liked(){
-        console.log(isLiked)
-        setIsLiked(true)
-    }
+    // function liked(){
+    //     console.log(isLiked)
+    //     setIsLiked(true)
+    // }
     return (
         <div style={{background:"black", border: "1px solid rgb(61, 59, 59)", maxWidth: "100%"}}>
             <Header title="Home" showBackButton={false}/>

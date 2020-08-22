@@ -24,7 +24,7 @@ this might work because mongoose automatically converts any string id into its c
 - fix the above problem @done
 - set up login, also optionally send an email on successfull login @done
 - get retweets and likes to work with icons
-- get individual posts on click on the post
+- get individual posts on click on the post@done
 - redirect when user is auth or not and protect routess @done
 
 
@@ -53,4 +53,8 @@ to fix: login works even if password wrong;i am directed to landing on successfu
 fix navigation and routes problem;question: why does sometimes on login it takes me to the landing page? need answers. But i have to be calm and patient. @done and solved hell yeah
 all the things before
 
+
+### 23rd goal
+
+get retweets to work, style the user page and complete it, fix the image in createPost,let the user post comments, if done quickly, let users upload a photo of their choice
 you have until 24 to do it all

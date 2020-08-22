@@ -3,6 +3,7 @@ import './App.css';
 import Home from './components/Home/Home';
 import Landing from "./components/Landing Page/Landing";
 import ProtectedRoute from './protectedRoutes';
+import User from './components/User/User'
 import IndividualPost from './components/Individual Post/IndividualPost'
 import {Authentication} from "./components/Authentication/Authentication";
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
@@ -44,6 +45,8 @@ function App() {
     localStorage.setItem("isAuth", "false");
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
+    localStorage.removeItem("expiryDate");
+
     window.location.reload()
   }
   function failFunc(){
@@ -57,6 +60,7 @@ function App() {
     }, milliseconds)
   }
   // isAuth = false
+
   return (
     <BrowserRouter>
     <div className="App">
@@ -70,12 +74,19 @@ function App() {
     <Switch>
     {/* <Route path="/home"  render={()=> <Home logout={logout} isAuth={isAuth}/>}/> */}
       <ProtectedRoute component={Home} path="/home" isAuth={isAuth} logout={logout} exact/>
-      <Route path="/home/:id" component={IndividualPost}/>
+      {/* <Route path="/status/:username" component={User}/> */}
       <Route path="/signup"  exact render={()=> <Authentication authDesc="Sign Up for Twitter" buttonDesc="Sign Up"/>}/>
       <Route path="/login" exact render={()=> <Authentication success={login} fail={failFunc} autoLogOut={autoLogOut} type="login" authDesc="Log in" buttonDesc="Log in" />}/>
+
+      <Route path="/:username" exact component={User}/>
+
+      <Route path="/:username/:id" component={IndividualPost}/>
+
       {isAuth=="true" ? <Redirect from="/" to="/home"/> : <Redirect from="/home" to="/"/>  }
       
+      
       <Route path="/" exact component={Landing}/>
+      
       <Route path="*" render={()=> <p>404 error</p>}/>
     </Switch>
     {localStorage.getItem("isAuth") == "true" ? null : <Redirect to="/"></Redirect>}
