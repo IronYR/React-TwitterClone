@@ -104,19 +104,29 @@ export function Authentication(props) {
                 password: password
             })
         }).then(res=>{
-            // console.log(res)
-            if(res.ok){
+            console.log(res)
+            if(+res.status == 200 || +res.status == 201){
                 setLoggedin(true);
             }
             return res.json()
         }).then(result=>{
             console.log(result)
             setError(result.message);
+            if(result.message == "Please sign up first" ||result.message == "Something went wrong" || result.message == "Wrong Password" ){
+                props.fail()
+                return;
+            }
+            console.log(loggedin)
             localStorage.setItem('token', result.token);
             localStorage.setItem('userID', result.userID);
-            localStorage.setItem("isAuth", true)
+            localStorage.setItem("isAuth", "true");
+            let remainingMilliseconds = 30 * 60 * 1000;
+            const expiryDate = new Date(new Date().getTime() + remainingMilliseconds )
+            localStorage.setItem("expiryDate", expiryDate.toISOString() );
+            props.autoLogOut(remainingMilliseconds)
             // props.sendUser(result.user)
             props.success(true);
+            
         }).catch(err=>{
             console.log(err)
             setError(err.message)

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import classes from './CreatePost.module.css'
 export default function CreatePost(props) {
+    let [postCreated, setPostCreated] = useState(false)
     let token = localStorage.getItem("token");
     let [postDesc, setPostDesc] = useState({desc: "Whats happening?"});
     const tx = document.getElementsByTagName('textarea');
@@ -29,7 +30,8 @@ export default function CreatePost(props) {
             return res.json()
         }).then(result=>{
             console.log(result)
-            window.location.reload()
+            props.created();
+            // window.location.reload()
         }).catch(err=>{
             console.log(err)
         })
@@ -43,7 +45,7 @@ export default function CreatePost(props) {
             <div className={classes.img}>
                 <img src="https://th.bing.com/th/id/OIP.HTvPkLCDOlAYQX-sh8oGogAAAA?w=146&h=150&c=7&o=5&dpr=1.25&pid=1.7" alt=""></img>
             </div>
-            <form className={classes.main} >
+            <div className={classes.main} >
                 <div className={classes.textField}>
                     
                     <textarea name="postContent" value={postDesc.desc} onChange={updateData}></textarea>
@@ -51,7 +53,7 @@ export default function CreatePost(props) {
                 <div className={classes.extras}>
                     <button onClick={onFormSend} className={classes.tweetButton} >Tweet</button>
                 </div>
-            </form>
+            </div>
         </div>
     )
 }

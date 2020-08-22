@@ -2,105 +2,62 @@ import React, {useState} from 'react'
 import classes from './Post.module.css';
 import Like from '../../../images/iconfinder_jee-04_2239656.svg';
 import Retweet from '../../../images/retweet.svg'
+import { Link } from 'react-router-dom';
 export default function Post(props) {
-    let originalLike = props.likes;
-    let [liked, setLiked] = useState(props.isLiked)
-    let [likes, setLikes] = useState(props.likes);
-    function onClick(){
-        if(likes == props.likes){
-            if(props.isLiked){
-            setLikes(likes--)
-            setLiked(false)
-            likesHandle()
-            return ;
-            }
-            setLikes(likes++);
-            setLiked(true);
-            likesHandle()
-        } else if(likes == originalLike++){
-            setLikes(likes--)
-            setLiked(false)
-            likesHandle()
-        }
-    }
-    function onRetweet(){
-        
-    }
-    function likesHandle(){
-        if(!liked){
-            fetch("http://localhost:5000/likes", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    likes: likes,
-                    postID: props.postID,
-                    isLiked: true
-                })
-            }).then(res=>{
-                return res.json()
-            }).then(result=>{
-                console.log(result)
-                window.location.reload()
-            }).catch(err=>{
-                console.log(err)
+    function onLike(){
+        fetch("http://localhost:5000/likes", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                postID: props.postID,
+                userID: props.userID
             })
-        }
-        if(liked){
-            fetch("http://localhost:5000/likes", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    likes: likes,
-                    postID: props.postID,
-                    isLiked: false
-                })
-            }).then(res=>{
-                return res.json()
-            }).then(result=>{
-                console.log(result)
-                window.location.reload()
+        }).then(res=>{
+            props.liked();
 
-            }).catch(err=>{
-                console.log(err)
-            })
-        }
-        
+            return res.json()
+        }).then(result=>{
+            console.log(result)
+            // window.location.reload()
+        }).catch(err=>{
+            console.log(err)
+        })
+
     }
     return (
-        <div className={classes.post}>
-            <div className={classes.img}>
-                <img src="https://th.bing.com/th/id/OIP.HTvPkLCDOlAYQX-sh8oGogAAAA?w=146&h=150&c=7&o=5&dpr=1.25&pid=1.7" alt=""/>
+        <Link to="/home/:id">
+            <div className={classes.post}>
+                <div className={classes.img}>
+                    <img src={props.userImg} alt=""/>
+                </div>
+                <div className={classes.main}>
+                    <div className={classes.top}>
+                        <div className={classes.poster}>
+                        <span className={classes.name}>{props.name}</span>
+                        <span className={classes.username}>@{props.username}</span>
+                        <span className={classes.time}>{props.time}</span>
+                        </div>
+                        <div className={classes.options}>
+                            <span>V</span>
+                        </div>
+                    </div>
+                    <div className={classes.content}>
+                        <div className={classes.postDesc}>{props.desc}</div>
+                        <div className={classes.interaction}>
+                            {/* <span onClick={onClick}><img className={classes.interactionIcons} src={Like} alt="" id={classes.like}/></span> */}
+                            <button onClick={onLike}>Like</button>
+                            <span>{props.likes}</span>
+                            <button>Retweet</button>
+                            <span>{props.retweets}</span>
+                        </div>
+                    </div>
+                    </div>
+
             </div>
-            <div className={classes.main}>
-                <div className={classes.top}>
-                    <div className={classes.poster}>
-                    <span className={classes.name}>{props.name}</span>
-                    <span className={classes.username}>@{props.username}</span>
-                    <span className={classes.time}>{props.time}</span>
-                    </div>
-                    <div className={classes.options}>
-                        <span>V</span>
-                    </div>
-                </div>
-                <div className={classes.content}>
-                    <div className={classes.postDesc}>{props.desc}</div>
-                    <div className={classes.interaction}>
-                        {/* <span onClick={onClick}><img className={classes.interactionIcons} src={Like} alt="" id={classes.like}/></span> */}
-                        <button onClick={onClick}>Like</button>
-                        <span>{likes}</span>
-                        <button onClick={onRetweet}>Retweet</button>
-                        <span>{props.retweets}</span>
-                    </div>
-                </div>
-                </div>
-            
-        </div>
+        </Link>
     )
 }
 
@@ -113,7 +70,7 @@ export default function Post(props) {
 // * likes
 // * retweet
 
-
+//keep
 
 
 

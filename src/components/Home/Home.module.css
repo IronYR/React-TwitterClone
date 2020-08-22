@@ -28,9 +28,10 @@
 
 @media screen and (max-width:660px){
     .home{
-        grid-template-columns: 0.5fr 2.5fr;
+        grid-template-columns: 0fr 4fr;
+        grid-template-areas: "post";
     }
-    Posts{
+    /* Posts{
         margin-right: 10px;
-    }
+    } */
 }

@@ -26,7 +26,11 @@ export default function Home(props) {
     }
     return (
         
-        returnJSX()
+        <div className={classes.home}>
+            <Left logout={props.logout} />
+            <Posts></Posts>
+            <Right empty={empty}/>
+        </div>
         
     )
 }
