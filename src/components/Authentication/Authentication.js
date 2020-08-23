@@ -118,7 +118,8 @@ export function Authentication(props) {
             }
             console.log(loggedin)
             localStorage.setItem('token', result.token);
-            localStorage.setItem('userID', result.userID);
+            localStorage.setItem('userID', result.user._id);
+            localStorage.setItem('user', JSON.stringify({name: result.user.name, username: result.user.username, picture: result.user.picture}))
             localStorage.setItem("isAuth", "true");
             let remainingMilliseconds = 30 * 60 * 1000;
             const expiryDate = new Date(new Date().getTime() + remainingMilliseconds )

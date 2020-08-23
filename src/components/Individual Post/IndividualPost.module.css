@@ -30,7 +30,7 @@
     color: #D9D9D9;
     border-bottom:1px solid rgb(61, 59, 59) ;
     /* background-color: cadetblue; */
-
+    padding: 5px;
 }
 .Main .postContent .post a{
     width: 100%;
@@ -75,13 +75,14 @@
 }
 
 
-.Main .postContent .post .postContent{
+.Main .postContent .post .postDesc{
     text-align: left;
     width: 100%;
     margin-bottom: 10px;
     font-size: 1.5rem;
     color: #D9D9D9;
-
+    display: flex;
+    justify-content: flex-start;
     /* display: flex;
     justify-content: flex-start;
     align-items: center; */
@@ -134,11 +135,18 @@
 .Main .postContent .post .postInteractions button{
     margin: 0px 10px;
 }
+.Main .postContent .postComments{
+    width: 100%;
+
+}
 .Right{
     grid-area: "right";
     
 }
-
+/* .sticky{
+    position: sticky;
+    top: 0;
+} */
 @media screen and (max-width: 1015px){
     .home{
         grid-template-columns: 1.5fr 2fr fr;
@@ -151,7 +159,7 @@
 
 @media screen and (max-width:660px){
     .home{
-        grid-template-columns: 0fr 4fr;
+        grid-template-columns: 0fr 4fr 0fr;
         grid-template-areas: "post";
     }
     /* Posts{

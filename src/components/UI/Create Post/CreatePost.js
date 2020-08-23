@@ -14,8 +14,18 @@ export default function CreatePost(props) {
       this.style.height = 'auto';
       this.style.height = (this.scrollHeight) + 'px';
     }
+    let uri = props.type;
     function onFormSend(e){
-        fetch("http://localhost:5000", {
+        // let postPayload = {
+        //     postContent: postDesc.desc,
+        // };
+        // let commentPayload = {
+        //     postContent: postDesc.desc,
+        //     postID: postID
+        // }
+        props.done();
+
+        fetch("http://localhost:5000/"+uri, {
             method: "POST",
             headers: {
                 //@todo: fill this up and send the data
@@ -25,13 +35,17 @@ export default function CreatePost(props) {
             },
             body: JSON.stringify({
                 postContent: postDesc.desc,
+                postID: props.postID,
+                userID: props.userID
             })
         }).then(res=>{
             return res.json()
         }).then(result=>{
             console.log(result)
-            props.created();
-            // window.location.reload()
+            if(props.reload == "true"){
+            window.location.reload()
+
+            }
         }).catch(err=>{
             console.log(err)
         })
@@ -43,7 +57,7 @@ export default function CreatePost(props) {
     return (
         <div className={classes.createPost}>
             <div className={classes.img}>
-                <img src="https://th.bing.com/th/id/OIP.HTvPkLCDOlAYQX-sh8oGogAAAA?w=146&h=150&c=7&o=5&dpr=1.25&pid=1.7" alt=""></img>
+                <img src={props.userPic} alt=""></img>
             </div>
             <div className={classes.main} >
                 <div className={classes.textField}>

@@ -106,16 +106,23 @@ export default function Post(props) {
                         </div>
                     </Link>
                     <div className={classes.content}>
-                        <Link to={"/" + props.username + "/"+ props.postID} className={classes.contentLink}>
+                        {/* /yrehan/postID/comments/commentID */}
+                        {props.isComment == "true" 
+                        ? 
+                        (<div className={classes.contentLink}>
                             <div className={classes.postDesc}>{props.desc}</div>
-                        </Link>
+                        </div>) 
+                        : 
+                        (<Link to={"/" + props.username + "/"+ props.postID} className={classes.contentLink}>
+                            <div className={classes.postDesc}>{props.desc}</div>
+                        </Link>)
+                        }
+                            
                 
                         <div className={classes.interaction}>
-                            {/* <span onClick={onClick}><img className={classes.interactionIcons} src={Like} alt="" id={classes.like}/></span> */}
-                            <button onClick={onLike}>Like</button>
-                            <span>{props.likes}</span>
-                            <button>Retweet</button>
-                            <span>{props.retweets}</span>
+                            {props.hasLikes ? <><button onClick={onLike}>Like</button>
+                            <span>{props.likes}</span></> : null}
+                            
                         </div>
                     </div>
                     </div>

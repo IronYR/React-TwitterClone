@@ -6,7 +6,7 @@ export default function ProtectedRoutes({component: Component, ...rest}) {
     return (
         <Route render={()=>{
             if(rest.isAuth.toString() == "true"){
-                return <Component {...rest} />
+                return <Component {...rest} exact={true}/>
             } else if(rest.isAuth.toString() == "false"){
                 return (
                     <Redirect to={{
