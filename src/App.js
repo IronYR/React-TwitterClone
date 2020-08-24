@@ -3,7 +3,8 @@ import './App.css';
 import Home from './components/Home/Home';
 import Landing from "./components/Landing Page/Landing";
 import ProtectedRoute from './protectedRoutes';
-import User from './components/User/User'
+import User from './components/User/User';
+import Edit from './components/UI/Edit User/Edit'
 import IndividualPost from './components/Individual Post/IndividualPost'
 import {Authentication} from "./components/Authentication/Authentication";
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
@@ -53,7 +54,7 @@ function App() {
   function failFunc(){
     localStorage.setItem("isAuth", "false");
     setIsAuth("false");
-    setTimeout(()=> window.location.reload(), 2000)
+    // setTimeout(()=> window.location.reload(), 2000)
   }
   function autoLogOut(milliseconds){
     setTimeout(()=>{
@@ -75,6 +76,7 @@ function App() {
     routes= (
       <Switch>
         <ProtectedRoute component={Home} path="/home" isAuth={isAuth} logout={logout} exact/>
+        <Route path="/edit/:id" exact component={Edit}/>
         <Route path="/:username" exact component={User}/>
 
         <Route path="/:username/:id" exact component={IndividualPost}/>

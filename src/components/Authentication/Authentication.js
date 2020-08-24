@@ -10,6 +10,7 @@ export function Authentication(props) {
     let [email, setEmail] = useState("");
     let [username, setUsername] = useState("");
     let [password, setPassword] = useState("");
+    let [img, setImg] = useState({});
     let [name, setName] = useState("");
     // let [userID, setUserID] = useState("");
     function inputsHandler(e, type){
@@ -21,6 +22,9 @@ export function Authentication(props) {
             setUsername(e.target.value);
         } else if(type== "name"){
             setName(e.target.value)
+        } else if(type=="file"){
+            console.log(e.target)
+            setImg(e.target.files[0])
         }
     }
     let signUpForm = ()=>(
@@ -33,7 +37,7 @@ export function Authentication(props) {
             <Input name="username" type="text" label="Username" onInputHandler={inputsHandler}/>
             <Input name="name" type="text" label="Name" onInputHandler={inputsHandler}/>
             <Input name="password" type="password" label="Password" onInputHandler={inputsHandler}/>
-            
+            <Input name="file" type='file' label="File" onInputHandler={inputsHandler}/>
         </form>
     );
     let loginForm= ()=>(
@@ -66,25 +70,29 @@ export function Authentication(props) {
     //     })
     // }
     function onSignUp(){
+        let formData = new FormData();
+        formData.append("email", email);
+        formData.append("name", name);
+        formData.append("username", username);
+        formData.append("password", password);
+        formData.append("image", img);
+        console.log(formData)
         fetch("http://localhost:5000/signup", {
             method: "POST",
-            headers: {
-                //@todo: fill this up and send the data
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email,
-                name: name,
-                username: username,
-                password: password
-
-            })
+            // headers: {
+            //     //@todo: fill this up and send the data
+            //     'Content-Type': 'application/json',
+            //     'Accept': 'application/json'
+            // },
+            body: formData
         }).then(res=>{
+            if(res.status != 422){
+                setSignedUp(true);
+
+            }
             return res.json()
         }).then(result=>{
             console.log(result)
-            setSignedUp(true);
             setError(result.message);
         }).catch(err=>{
             console.log(err)
@@ -143,7 +151,7 @@ export function Authentication(props) {
                 <div className={classes.authDesc}>{props.authDesc}</div>
                 {props.type == "login" ? loginForm() : signUpForm()}
                 <div className={classes.button}>
-                <button onClick={props.type== "login" ? onLogin: onSignUp} className={classes.loginButton}>{props.buttonDesc}</button>
+                <button onClick={props.type== "login" ? onLogin: onSignUp} className={classes.loginButton} type="submit">{props.buttonDesc}</button>
                 <p>{error}</p>
                 {loggedin ? <Redirect to="/home"/> : null}
                 {signedUp ? <Redirect to="/login"/> : null}

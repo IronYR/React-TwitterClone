@@ -27,7 +27,7 @@ export default function Posts(props) {
         setUserPic(data.userPic);
     })
     return ()=> setPostCreated(false)
-    }, [postCreated]);
+    }, [postCreated,isLiked, userID, token]);
     // useEffect(()=>{
     //     fetch("http://localhost:5000", {
     //     method: "GET",
@@ -65,8 +65,14 @@ export default function Posts(props) {
             {posts.map(post=>{
                 let time = new Date(post.timePostCreated).toLocaleString();
                 // let time = new Date(current - postCreated).getMinutes();
+                let isLiked;
+                if(post.isLikedBy.includes(userID)){
+                    isLiked = true;
+                } else{
+                    isLiked= false;
+                }
                 
-                return <Post key={Math.random()} name={post.posterName} username={post.username} time={time} desc={post.postDesc} likes={post.likes} isComment="false" postID={post.postID} liked={created} userImg={post.userImg} userID={post.userID} hasLikes={true}></Post>
+                return <Post key={Math.random()} name={post.posterName} username={post.username} time={time} desc={post.postDesc} likes={post.likes} isComment="false" postID={post.postID} liked={created} isLiked={isLiked} userImg={post.userImg} userID={post.userID} hasLikes={true}></Post>
             })}
         </div>
     )

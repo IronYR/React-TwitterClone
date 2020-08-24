@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom"
 import Right from '../UI/RightSideBar/RightBar';
 import Left from '../UI/LeftSideBar/LeftBar';
 import classes from './User.module.css';
@@ -38,7 +39,8 @@ export default function User(props) {
         props.history.replace("/")
       }
     let time = new Date(user.createdAt).toLocaleDateString();
-    
+    let currentUser = JSON.parse(localStorage.getItem("user"));
+    console.log(currentUser)
     return ( 
         <div className={classes.home}>
             <Left logout={logout}/>
@@ -47,6 +49,8 @@ export default function User(props) {
                 <div className={classes.user}>
                     <div className={classes.userImg}>
                         <img src={user.picture} alt=""/>
+                        {currentUser.username == user.username ? <Link className={classes.editProfile} to={"/edit/"+ user._id}>Edit Profile</Link> : null}
+
                     </div>
                     <div className={classes.userInfo}>
                         <p className={classes.userName}>{user.name}</p>

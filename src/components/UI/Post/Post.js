@@ -1,92 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import classes from './Post.module.css';
-import Like from '../../../images/iconfinder_jee-04_2239656.svg';
-import Retweet from '../../../images/retweet.svg'
 import { Link } from 'react-router-dom';
+import Likes from '../Likes/Likes';
 export default function Post(props) {
-    let currentUser = localStorage.getItem("userID");
-    function onLike(){
-        fetch(`http://localhost:5000/likes?postID=${props.postID}&userID=${currentUser}`, {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }).then(res=>{
-
-            return res.json()
-        }).then(result=>{
-            let {post, user} = result;
-            console.log(result)
-            if(post.isLikedBy.includes(user._id)){
-                let index = post.isLikedBy.findIndex(id=> id.toString()==user._id.toString());
-                let newPost = post.isLikedBy.filter(id=> id.toString() != user._id.toString());
-                // let updatedPost = {...post};
-                // updatedPost.isLikedBy = newIsLikedBy;
-                console.log(newPost)
-                console.log(index);
-                console.log(post);
-                console.log("new post", newPost)
-                // delete post.isLikedBy[index];
-                // let newIsLikedBy = post.isLikedBy.splice(index,1);
-                post.isLikedBy = newPost;
-                post.likes--;
-                console.log("post after likes dedeucted", post)
-                if(user.likedPosts.length>0){
-                    let ind = user.likedPosts.findIndex(id=> id==post._id.toString());
-                    let newLikedPosts = user.likedPosts.splice(ind, 1);
-                    user.likedPosts = newLikedPosts;
-                }
-                // console.log("user index", ind)
-                // delete user.likedPosts[ind]
-                console.log( "user after deleting",user)
-                fetch("http://localhost:5000/likes", {
-                    method: "POST",
-                    headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        newUser: user,
-                        newPost: post
-                    })
-                }).then(res=>{
-                    return res.json()
-                }).then(result=>{
-                    console.log(result);
-                    window.location.reload()
-                })
-                                
-            } else{
-                 post.isLikedBy.push(user._id);
-                 post.likes++;
-                 user.likedPosts.push(post._id);
-                 console.log(user, post)
-                 fetch("http://localhost:5000/likes", {
-                    method: "POST",
-                    headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        newUser: user,
-                        newPost: post
-                    })
-                }).then(res=>{
-                    return res.json()
-                }).then(result=>{
-                    console.log(result);
-                    props.liked();
-                })
-             }
-
-            console.log(result)
-            window.location.reload()
-        }).catch(err=>{
-            console.log(err)
-        })
-
-    }
+    // let currentUser = localStorage.getItem("userID");
+    
     return (
             <div className={classes.post}>
                 <div className={classes.img}>
@@ -120,7 +38,7 @@ export default function Post(props) {
                             
                 
                         <div className={classes.interaction}>
-                            {props.hasLikes ? <><button onClick={onLike}>Like</button>
+                            {props.hasLikes ? <><Likes postID={props.postID} liked={props.liked} isLiked={props.isLiked}/>
                             <span>{props.likes}</span></> : null}
                             
                         </div>

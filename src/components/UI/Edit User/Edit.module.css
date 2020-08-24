@@ -15,7 +15,30 @@
     grid-area: "right";
     
 }
+.edit{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
 
+.submit{
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid blue;
+    background-color: black; 
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    transition: all 0.2s ease-in;
+}
+.submit:hover{
+    background-color: blue;
+}
 @media screen and (max-width: 1015px){
     .home{
         grid-template-columns: 1.5fr 2fr fr;
@@ -26,7 +49,7 @@
     } */
 }
 
-@media screen and (max-width:1015px){
+@media screen and (max-width:660px){
     .home{
         grid-template-columns: 0fr 4fr 0fr;
         grid-template-areas: "post";

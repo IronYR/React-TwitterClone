@@ -134,6 +134,7 @@
 }
 .Main .postContent .post .postInteractions button{
     margin: 0px 10px;
+    font-size: 1rem;
 }
 .Main .postContent .postComments{
     width: 100%;
