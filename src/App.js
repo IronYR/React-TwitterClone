@@ -63,8 +63,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         {routes}
-        {/* {isAuth=="true" ? <Redirect from="/" to="/home"/> : <Redirect from="/home" to="/"/>  }
-        {localStorage.getItem("isAuth") == "true" ? null : <Redirect to="/"></Redirect>} */}
+        {isAuth=="true" ? <Redirect from="/" to="/home"/> : <Redirect from="/home" to="/"/>  }
+        {/* {localStorage.getItem("isAuth") == "true" ? null : <Redirect to="/"></Redirect>} */}
       </div>
     </BrowserRouter>
   );
