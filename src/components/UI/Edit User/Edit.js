@@ -41,7 +41,7 @@ export default function Edit(props) {
         formData.append("name", name);
         formData.append("image", img );
         formData.append("desc", desc );
-
+        props.history.goBack();
         fetch("https://my-rest-api-twitter.herokuapp.com/edit/"+props.match.params.id,{
             method: "POST",
             body: formData
@@ -64,7 +64,7 @@ export default function Edit(props) {
             <div className={classes.edit}>
                 <Header title="Edit" showBackButton={true} goBack={props.history.goBack} logout={props.logout}/>
                 <div className={classes.editForm}>
-                    <form className={classes.form}>
+                    <div className={classes.form}>
                         <label htmlFor="name">Edit Name</label>
                         <input name="name" id="name" value={name} onChange={(e)=> inputHandler(e,"name")}></input>
                         <label htmlFor="img">Edit Img</label>
@@ -72,7 +72,7 @@ export default function Edit(props) {
                         <label htmlFor="desc">Edit Desc</label>
                         <input name="desc" id="desc" value={desc} type="text" onChange={(e)=> inputHandler(e, "desc")}/>
                         <button onClick={submit} className={classes.submit}>Submit Changes</button>
-                    </form>
+                    </div>
                 </div>
             </div>
             <Right empty={empty}/>
