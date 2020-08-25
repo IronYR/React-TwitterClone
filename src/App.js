@@ -44,8 +44,6 @@ function App() {
       <Route path="/login" exact render={()=> <Authentication success={login} fail={failFunc} autoLogOut={autoLogOut} type="login" authDesc="Log in" buttonDesc="Log in" />}/>
       <Route path="/" exact component={Landing}/>
       <Redirect to="/"/>
-      {isAuth=="true" ? <Redirect from="/" to="/home"/> : <Redirect from="/home" to="/"/>  }
-      {localStorage.getItem("isAuth") == "true" ? null : <Redirect to="/"></Redirect>}
       <Route path="*" render={()=> <p>404 error</p>}/>
     </Switch>
   )
@@ -58,8 +56,6 @@ function App() {
         <Route path="/:username/:id" exact render={(props)=><IndividualPost {...props} logout={logout}/>}/>
         <Route path="*" render={()=> <p>404 error</p>}/>
         <Redirect to="/home"/>
-        {isAuth=="true" ? <Redirect from="/" to="/home"/> : <Redirect from="/home" to="/"/>  }
-        {localStorage.getItem("isAuth") == "true" ? null : <Redirect to="/"></Redirect>}
       </Switch>
     )
   }
@@ -67,7 +63,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         {routes}
-        
+        {isAuth=="true" ? <Redirect from="/" to="/home"/> : <Redirect from="/home" to="/"/>  }
+        {localStorage.getItem("isAuth") == "true" ? null : <Redirect to="/"></Redirect>}
       </div>
     </BrowserRouter>
   );
