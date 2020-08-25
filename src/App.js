@@ -51,7 +51,8 @@ function App() {
     routes= (
       <Switch>
         <Route path="/edit/:id" render={(props)=> <Edit {...props} logout={logout}/>}/>
-        <ProtectedRoute component={Home} path="/home" isAuth={isAuth} logout={logout} exact/>
+        <Route path="/home" exact render={(props)=> <Home {...props} logout={logout}/>}/>
+        {/* <ProtectedRoute component={Home} path="/home" isAuth={isAuth} logout={logout} exact/> */}
         <Route path="/:username" exact render={(props)=><User {...props} logout={logout}/>}/>
         <Route path="/:username/:id" exact render={(props)=><IndividualPost {...props} logout={logout}/>}/>
         <Route path="*" render={()=> <p>404 error</p>}/>
@@ -59,6 +60,7 @@ function App() {
       </Switch>
     )
   }
+  console.log(isAuth==="true")
   return (
     <BrowserRouter>
       <div className="App">
