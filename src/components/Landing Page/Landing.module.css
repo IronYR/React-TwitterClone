@@ -35,7 +35,6 @@
 
 }
 .right .rightContainer{
-    /* background-color: yellow; */
     height: 50%;
     width: 50%;
     display: flex;
@@ -87,6 +86,7 @@
     margin: 10px auto;
     cursor: pointer;
     transition: all 0.1s ease-in;
+    text-align: center;
 }
 .right .rightContainer .buttons .signup:hover{
     background-color: rgba(29,100,255,1.00);
@@ -106,8 +106,6 @@
         order: 1;
         width: 100%;
         height: 70%;
-        
-
     }
     .left{
         order: 2;
@@ -115,7 +113,6 @@
         height: 30%;
     }
     .right .rightContainer{
-        /* background-color: chartreuse; */
         height: 100%;
         width: 50%;
         display: flex;

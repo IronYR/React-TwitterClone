@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import Post from '../Post/Post';
 import CreatePost from '../Create Post/CreatePost';
 import Header from '../Header/Header'
-// import moment from 'moment';
 export default function Posts(props) {
     let [userPic, setUserPic] = useState("");
     let [postCreated, setPostCreated] = useState(false)
@@ -22,48 +21,21 @@ export default function Posts(props) {
     }).then(result=>{
         return result.json()
     }).then(data=>{
-        console.log(data.post);
         setPosts(data.post);
         setUserPic(data.userPic);
     })
     return ()=> setPostCreated(false)
     }, [postCreated,isLiked, userID, token]);
-    // useEffect(()=>{
-    //     fetch("http://localhost:5000", {
-    //     method: "GET",
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'Accept': 'application/json',
-    //         'Authorization': "Bearer " + token
-    //     },
-    // }).then(result=>{
-    //     return result.json()
-    // }).then(post=>{
-    //     console.log(post);
-    //     setPosts(post);
-    // })
-    // return ()=> setIsLiked(false)
-    // }, [isLiked]);
-    // function dateHandler(date){
-    //     let current = new Date();
-    //     let before = new Date(date);
-    //     return new Date(current - before).getMinutes;
-    // }
     function created(){
-        console.log(postCreated)
         setPostCreated(true)
         
     }
-    // function liked(){
-    //     console.log(isLiked)
-    //     setIsLiked(true)
-    // }
     return (
         <div style={{background:"black", border: "1px solid rgb(61, 59, 59)", maxWidth: "100%"}}>
-            <Header title="Home" showBackButton={false}/>
+            <Header title="Home" showBackButton={false} logout={props.logout}/>
             <CreatePost done={created} userPic={userPic} type=""></CreatePost>
             {posts.map(post=>{
-                let time = new Date(post.timePostCreated).toLocaleString();
+                let time = new Date(post.timePostCreated).toLocaleDateString();
                 // let time = new Date(current - postCreated).getMinutes();
                 let isLiked;
                 if(post.isLikedBy.includes(userID)){

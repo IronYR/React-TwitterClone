@@ -18,8 +18,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* background-color: white; */
-    /* padding: 10px; */
 }
 .Main .postContent .post{
     display: flex;
@@ -29,7 +27,6 @@
     width: 100%;
     color: #D9D9D9;
     border-bottom:1px solid rgb(61, 59, 59) ;
-    /* background-color: cadetblue; */
     padding: 5px;
 }
 .Main .postContent .post a{
@@ -42,9 +39,6 @@
     align-items:center;
     width: 100%;
     margin-bottom: 10px;
-    /* background-color: cadetblue; */
-    /* padding: auto 10px; */
-
 }
 .Main .postContent .post .posterInfo .posterImg{
     width: 55px;
@@ -73,8 +67,6 @@
 .Main .postContent .post a:hover >.posterInfo .poster .posterName{
     text-decoration: underline;
 }
-
-
 .Main .postContent .post .postDesc{
     text-align: left;
     width: 100%;
@@ -83,20 +75,12 @@
     color: #D9D9D9;
     display: flex;
     justify-content: flex-start;
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: center; */
-    /* padding:auto 10px; */
-
 }
 .Main .postContent .post .postMetaInfo{
     text-align: left;
     width: 100%;
     margin-bottom: 10px;
     color: #6E767D;
-
-    /* padding:auto 10px; */
-
 }
 
 .Main .postContent .post .postInteractionsCount{
@@ -104,7 +88,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* padding:auto 10px; */
     margin-bottom: 10px;
     border: 1px solid rgb(61, 59, 59);
     border-right: none;
@@ -127,10 +110,6 @@
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 10px;
-
-    /* background-color: whitesmoke; */
-    /* padding:auto 10px; */
-
 }
 .Main .postContent .post .postInteractions button{
     margin: 0px 10px;
@@ -138,32 +117,14 @@
 }
 .Main .postContent .postComments{
     width: 100%;
-
 }
 .Right{
     grid-area: "right";
-    
-}
-/* .sticky{
-    position: sticky;
-    top: 0;
-} */
-@media screen and (max-width: 1015px){
-    .home{
-        grid-template-columns: 1.5fr 2fr fr;
-        grid-template-areas: "left post" ;
-    }
-    /* Right{
-        display: none;
-    } */
 }
 
-@media screen and (max-width:660px){
+@media screen and (max-width:1015px){
     .home{
         grid-template-columns: 0fr 4fr 0fr;
         grid-template-areas: "post";
     }
-    /* Posts{
-        margin-right: 10px;
-    } */
 }

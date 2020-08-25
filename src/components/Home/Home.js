@@ -6,22 +6,22 @@ import Right from '../UI/RightSideBar/RightBar'
 export default function Home(props) {
     let empty;
     function myFunction(x) {
-        if (x.matches) { // If media query matches
-        //   document.body.style.backgroundColor = "yellow";
+        if (x.matches) {
+
             empty =true;
         } else {
             empty = false;
         }
       }
     var x = window.matchMedia("(max-width: 1000px)")
-    myFunction(x) // Call listener function at run time
-    x.addListener(myFunction) // Attach listener function on state changes
+    myFunction(x) 
+    x.addListener(myFunction) 
     return (
         
         <div className={classes.home}>
-            <Left logout={props.logout} />
-            <Posts></Posts>
-            <Right empty={empty}/>
+            <Left  className={classes.Left}/>
+            <Posts className={classes.Post} logout={props.logout}></Posts>
+            <Right className={classes.Right} empty={empty}/>
         </div>
         
     )

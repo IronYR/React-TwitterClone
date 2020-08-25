@@ -8,6 +8,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-shrink: 1;
     width: 100%;
     min-height: 100px;
     background-color: black;
@@ -46,6 +47,7 @@
     width: 100%;
     position: relative;
     top: 0;
+    word-wrap: break-word;
 }
 .post .main .mainLink .top .poster span{
     margin-right: 5px;
@@ -100,13 +102,7 @@
     margin-bottom: 10px;
     word-wrap: break-word;
 }
-/* .post .options{
-    height: 100%;
-    max-width: 20%;
-} */
 .post .content .interaction{
-    /* height: 5%; */
-    /* width: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,8 +115,3 @@
 .like:hover{
     fill: yellow;
 }
-
-
-.st0{display:none;}
-.st1{fill:none;stroke:#303030;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-.st2{fill:#303030;}

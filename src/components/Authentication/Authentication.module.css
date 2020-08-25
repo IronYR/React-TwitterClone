@@ -14,9 +14,9 @@
     width: 50%;
 }
 .authentication .main .logo{
-    width: 50px;
-    height: 50px;
-    margin-bottom:30px ;
+    width: 70%;
+    min-height: 100px;
+    margin-bottom:15px ;
 }
 .authentication .main .logo img{
     height: 100%;
@@ -59,4 +59,20 @@
     font-weight: bold;
     font-size: 15px;
     padding: 20px;
+}
+.error{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+@media screen and (max-width: 1000px){
+    .authentication .main{
+        width: 80%;
+    }
+    .authentication .main form{
+        width: 90%;
+    }
+    .authentication .main .button{
+        width: 90%;
+    }
 }

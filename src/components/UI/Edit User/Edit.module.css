@@ -19,10 +19,11 @@
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: black;
     color: white;
+    flex-direction: column;
 }
 
 .submit{
@@ -36,25 +37,33 @@
     border-radius: 50px;
     transition: all 0.2s ease-in;
 }
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.5rem;
+}
+.editForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100vh;
+}
+.form input{
+    font-size: 1.4rem;
+    margin-bottom:10px ;
+}
 .submit:hover{
     background-color: blue;
 }
-@media screen and (max-width: 1015px){
-    .home{
-        grid-template-columns: 1.5fr 2fr fr;
-        grid-template-areas: "left post" ;
-    }
-    /* Right{
-        display: none;
-    } */
-}
 
-@media screen and (max-width:660px){
+@media screen and (max-width:1015px){
     .home{
-        grid-template-columns: 0fr 4fr 0fr;
+        grid-template-columns: 0fr 1fr 0fr;
         grid-template-areas: "post";
     }
-    /* Posts{
-        margin-right: 10px;
-    } */
+    .form input{
+        font-size: 0.9rem;
+    }
 }
