@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Header.module.css';
-import Back from '../../../images/leftArrow.svg'
+// import Back from '../../../images/leftArrow.svg'
 export default function Header(props) {
     return (
         <div className={classes.header}>
