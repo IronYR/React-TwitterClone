@@ -25,7 +25,8 @@ function App() {
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
     localStorage.removeItem("expiryDate");
-    localStorage.removeItem("user")
+    localStorage.removeItem("user");
+    window.history.pushState({}, null, "/");
     window.location.reload()
   }
   function failFunc(){
