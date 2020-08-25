@@ -84,7 +84,7 @@ export function Authentication(props) {
             localStorage.setItem('userID', result.user._id);
             localStorage.setItem('user', JSON.stringify({name: result.user.name, username: result.user.username, picture: result.user.picture}))
             localStorage.setItem("isAuth", "true");
-            let remainingMilliseconds = 10000;
+            let remainingMilliseconds = 30 * 60 * 1000;
             const expiryDate = new Date(new Date().getTime() + remainingMilliseconds )
             localStorage.setItem("expiryDate", expiryDate.toISOString() );
             props.autoLogOut(remainingMilliseconds)
