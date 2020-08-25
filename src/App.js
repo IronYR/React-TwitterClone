@@ -50,7 +50,7 @@ function App() {
   if(isAuth==="true"){
     routes= (
       <Switch>
-        <Route path="/edit/:id" exact render={(props)=> <Edit {...props} logout={logout}/>}/>
+        <Route path="/edit/:id" render={(props)=> <Edit {...props} logout={logout}/>}/>
         <ProtectedRoute component={Home} path="/home" isAuth={isAuth} logout={logout} exact/>
         <Route path="/:username" exact render={(props)=><User {...props} logout={logout}/>}/>
         <Route path="/:username/:id" exact render={(props)=><IndividualPost {...props} logout={logout}/>}/>
