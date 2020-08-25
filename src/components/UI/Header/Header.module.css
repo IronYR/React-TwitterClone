@@ -25,6 +25,13 @@
     outline: none;
     cursor: pointer;
 }
+.header button{
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    font-size: 1rem;
+}
 .title{
     font-weight: bold;
     color: white;
