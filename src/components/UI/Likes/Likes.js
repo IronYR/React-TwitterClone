@@ -3,7 +3,7 @@ import classes from './Likes.module.css';
 export default function Likes(props) {
     let currentUser = localStorage.getItem("userID");
     function onLike(){
-        fetch(`http://localhost:5000/likes?postID=${props.postID}&userID=${currentUser}`, {
+        fetch(`https://my-rest-api-twitter.herokuapp.com/likes?postID=${props.postID}&userID=${currentUser}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ export default function Likes(props) {
                     let newLikedPosts = user.likedPosts.splice(ind, 1);
                     user.likedPosts = newLikedPosts;
                 }
-                fetch("http://localhost:5000/likes", {
+                fetch("https://my-rest-api-twitter.herokuapp.com/likes", {
                     method: "POST",
                     headers: {
                     'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export default function Likes(props) {
                  post.isLikedBy.push(user._id);
                  post.likes++;
                  user.likedPosts.push(post._id);
-                 fetch("http://localhost:5000/likes", {
+                 fetch("https://my-rest-api-twitter.herokuapp.com/likes", {
                     method: "POST",
                     headers: {
                     'Content-Type': 'application/json',

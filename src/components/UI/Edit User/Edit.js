@@ -10,7 +10,7 @@ export default function Edit(props) {
     let [desc, setDesc] = useState("");
     useEffect(()=>{
         let isMounted = true;
-        fetch("http://localhost:5000/edit/" +props.match.params.id, {
+        fetch("https://my-rest-api-twitter.herokuapp.com/edit/" +props.match.params.id, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export default function Edit(props) {
         formData.append("image", img );
         formData.append("desc", desc );
 
-        fetch("http://localhost:5000/edit/"+props.match.params.id,{
+        fetch("https://my-rest-api-twitter.herokuapp.com/edit/"+props.match.params.id,{
             method: "POST",
             body: formData
         }).then(result=>{

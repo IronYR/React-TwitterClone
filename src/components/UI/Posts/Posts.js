@@ -11,7 +11,7 @@ export default function Posts(props) {
     let [token, setToken] = useState(locToken)
     let userID = localStorage.getItem("userID");
     useEffect(()=>{
-        fetch("http://localhost:5000/?userID="+userID, {
+        fetch("https://my-rest-api-twitter.herokuapp.com/?userID="+userID, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',

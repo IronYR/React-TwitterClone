@@ -16,7 +16,7 @@ export default function CreatePost(props) {
     function onFormSend(e){
         props.done();
 
-        fetch("http://localhost:5000/"+uri, {
+        fetch("https://my-rest-api-twitter.herokuapp.com/"+uri, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

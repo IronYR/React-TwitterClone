@@ -15,7 +15,7 @@ export default function IndividualPost(props) {
     let [commented, setCommented] = useState(false)
     useEffect(()=>{
         let isMounted = true;
-        fetch("http://localhost:5000/" +props.match.params.username + "/"+props.match.params.id, {
+        fetch("https://my-rest-api-twitter.herokuapp.com/" +props.match.params.username + "/"+props.match.params.id, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',

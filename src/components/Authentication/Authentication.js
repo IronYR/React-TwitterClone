@@ -42,7 +42,7 @@ export function Authentication(props) {
         formData.append("name", name);
         formData.append("username", username);
         formData.append("password", password);
-        fetch("http://localhost:5000/signup", {
+        fetch("https://my-rest-api-twitter.herokuapp.com/signup", {
             method: "POST",
             body: formData
         }).then(res=>{
@@ -59,7 +59,7 @@ export function Authentication(props) {
         })
     }
     function onLogin(){
-        fetch("http://localhost:5000/login", {
+        fetch("https://my-rest-api-twitter.herokuapp.com/login", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

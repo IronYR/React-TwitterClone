@@ -12,7 +12,7 @@ export default function User(props) {
     let [isFollowing, setIsFollowing] = useState([]);
     let [click, setClick] = useState(false);
     useEffect(()=>{
-        fetch(`http://localhost:5000/follow/${props.match.params.username}/${localStorage.getItem("userID")}`, {
+        fetch(`https://my-rest-api-twitter.herokuapp.com/follow/${props.match.params.username}/${localStorage.getItem("userID")}`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export default function User(props) {
             setIsFollowing(follower.isFollowing)
 
 
-            fetch(`http://localhost:5000/follow/${props.match.params.username}/${localStorage.getItem("userID")}`, {
+            fetch(`https://my-rest-api-twitter.herokuapp.com/follow/${props.match.params.username}/${localStorage.getItem("userID")}`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ export default function User(props) {
             setClick(true)
             setIsFollowing(follower.isFollowing)
 
-            fetch(`http://localhost:5000/follow/${props.match.params.username}/${localStorage.getItem("userID")}`, {
+            fetch(`https://my-rest-api-twitter.herokuapp.com/follow/${props.match.params.username}/${localStorage.getItem("userID")}`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
