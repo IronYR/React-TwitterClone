@@ -41,16 +41,16 @@
     position: relative;
 }
 
-.logout{
+.header button{
     background-color: red;
     color: white;
     outline: none;
     border: 1px solid red;
     padding: 7px 14px;
     font-size: 0.9rem;
-    margin-right: 5px;
+    margin:auto 5px;
     transition: all 0.1s ease-in;
 }
-.logout:hover{
+.header button:hover{
     background-color: rgb(219, 3, 3);
 }
