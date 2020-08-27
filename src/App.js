@@ -45,7 +45,7 @@ function App() {
   }
   let routes = (
     <Switch>
-      <Route path="/signup"  exact render={()=> <Authentication authDesc="Sign Up for Twitter" buttonDesc="Sign Up"/>}/>
+      <Route path="/signup"  exact render={()=> <Authentication authDesc="Sign Up" buttonDesc="Sign Up"/>}/>
       <Route path="/login" exact render={()=> <Authentication success={login} fail={failFunc} autoLogOut={autoLogOut} type="login" authDesc="Log in" buttonDesc="Log in" />}/>
       <Route path="/" exact component={Landing}/>
       <Redirect to="/"/>
