@@ -105,7 +105,14 @@
         grid-template-areas: "post";
     }
 }
-
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: black;
+}
 @media screen and (max-width: 600px){
     .Main .user .userImg img{
         width: 100px;

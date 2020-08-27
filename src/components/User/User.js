@@ -5,13 +5,16 @@ import Left from '../UI/LeftSideBar/LeftBar';
 import classes from './User.module.css';
 import Post from '../UI/Post/Post'
 import Header from '../UI/Header/Header'
+import Loader from '../UI/Loader/Loader';
 export default function User(props) {
+    let [loading, setLoading] = useState(false);
     let [user, setUser] = useState({});
     let [follower, setFollower] = useState({});
     let [posts, setPosts] = useState([]);
     let [isFollowing, setIsFollowing] = useState([]);
     let [click, setClick] = useState(false);
     useEffect(()=>{
+        setLoading(true);
         fetch(`https://my-rest-api-twitter.herokuapp.com/follow/${props.match.params.username}/${localStorage.getItem("userID")}`, {
         method: "GET",
         headers: {
@@ -25,6 +28,8 @@ export default function User(props) {
         setPosts(user[0].posts)
         setFollower(follower);
         setIsFollowing(follower.isFollowing);
+        setLoading(false);
+
     })
     return ()=> setClick(false)
     }, [click, props.match.params.username]);
@@ -90,8 +95,11 @@ export default function User(props) {
     let time = new Date(user.createdAt).toLocaleDateString();
     let currentUser = JSON.parse(localStorage.getItem("user"));
     return ( 
-        <div className={classes.home}>
-            <Left logout={logout}/>
+        <>
+            {loading ?<div className={classes.center}><Loader color="white"/></div> : (
+            <div className={classes.home}>
+
+                <Left logout={logout}/>
             <div className={classes.Main}>
                 <Header title={user.name} showBackButton={true} goBack={props.history.goBack} logout={props.logout}/>
                 <div className={classes.user}>
@@ -134,6 +142,10 @@ export default function User(props) {
                 </div>
             </div>
             <Right/>
-        </div>
+            </div>
+
+            )}
+        </>
+                        
     )
 }

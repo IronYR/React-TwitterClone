@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import {Redirect} from 'react-router-dom';
 import classes from './Authentication.module.css'
 import Input from '../UI/Input/Input';
+import Loader from '../UI/Loader/Loader'
 export function Authentication(props) {
+    let [loading,setLoading] = useState(false)
     let [loggedin, setLoggedin] = useState(false);
     let [signedUp, setSignedUp] = useState(false);
     let [error, setError] = useState("");
@@ -37,6 +39,7 @@ export function Authentication(props) {
         </form>
     )
     function onSignUp(){
+        setLoading(true)
         let formData = new FormData();
         formData.append("email", email);
         formData.append("name", name);
@@ -53,12 +56,15 @@ export function Authentication(props) {
             return res.json()
         }).then(result=>{
             setError(result.message);
+            setLoading(false)
+
         }).catch(err=>{
             console.log(err)
             setError(err.message)
         })
     }
     function onLogin(){
+        setLoading(true)
         fetch("https://my-rest-api-twitter.herokuapp.com/login", {
             method: "POST",
             headers: {
@@ -89,7 +95,7 @@ export function Authentication(props) {
             localStorage.setItem("expiryDate", expiryDate.toISOString() );
             props.autoLogOut(remainingMilliseconds)
             props.success(true);
-            
+            setLoading(false)
         }).catch(err=>{
             console.log(err)
             setError(err.message)
@@ -104,8 +110,10 @@ export function Authentication(props) {
                 {props.type === "login" ? loginForm() : signUpForm()}
                 <div className={classes.button}>
                 <button onClick={props.type=== "login" ? onLogin: onSignUp} className={classes.loginButton} type="submit">{props.buttonDesc}</button>
-                <p className={classes.error}>{error}</p>
+                <p className={classes.error}>
+                    {loading ? <Loader color="black"/> : error}
 
+                </p>
                 {loggedin ? <Redirect to="/home"/> : null}
                 {signedUp ? <Redirect to="/login"/> : null}
                 </div>

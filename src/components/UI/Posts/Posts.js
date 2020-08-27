@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react'
 import Post from '../Post/Post';
 import CreatePost from '../Create Post/CreatePost';
 import Header from '../Header/Header'
+import Loader from '../Loader/Loader';
 export default function Posts(props) {
+    let [loading, setLoading] = useState(false);
     let [userPic, setUserPic] = useState("");
     let [postCreated, setPostCreated] = useState(false)
     let [isLiked, setIsLiked] = useState(false)
@@ -11,6 +13,7 @@ export default function Posts(props) {
     let [token, setToken] = useState(locToken)
     let userID = localStorage.getItem("userID");
     useEffect(()=>{
+        setLoading(true)
         fetch("https://my-rest-api-twitter.herokuapp.com/?userID="+userID, {
         method: "GET",
         headers: {
@@ -23,6 +26,7 @@ export default function Posts(props) {
     }).then(data=>{
         setPosts(data.post);
         setUserPic(data.userPic);
+        setLoading(false)
     })
     return ()=> setPostCreated(false)
     }, [postCreated,isLiked, userID, token]);
@@ -30,10 +34,17 @@ export default function Posts(props) {
         setPostCreated(true)
         
     }
+    let center={
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    }
     return (
         <div style={{background:"black", border: "1px solid rgb(61, 59, 59)", maxWidth: "100%"}}>
             <Header title="Home" showBackButton={false} logout={props.logout}/>
             <CreatePost done={created} userPic={userPic} type=""></CreatePost>
+            {loading && <div style={center}><Loader color="white"/></div>}
             {posts.map(post=>{
                 let time = new Date(post.timePostCreated).toLocaleDateString();
                 // let time = new Date(current - postCreated).getMinutes();

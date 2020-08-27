@@ -6,8 +6,10 @@ import Header from '../UI/Header/Header';
 import CreatePost from '../UI/Create Post/CreatePost'
 import Post from '../UI/Post/Post'
 import { Link } from 'react-router-dom';
-import Likes from '../UI/Likes/Likes'
+import Likes from '../UI/Likes/Likes';
+import Loader from '../UI/Loader/Loader'
 export default function IndividualPost(props) {
+    let [loading, setLoading] = useState(false);
     let [post, setPost] = useState({});
     let [comments, setComments] = useState([]);
     let [user, setUser] = useState({});
@@ -15,6 +17,7 @@ export default function IndividualPost(props) {
     let [commented, setCommented] = useState(false)
     useEffect(()=>{
         let isMounted = true;
+        setLoading(true)
         fetch("https://my-rest-api-twitter.herokuapp.com/" +props.match.params.username + "/"+props.match.params.id, {
         method: "GET",
         headers: {
@@ -29,6 +32,7 @@ export default function IndividualPost(props) {
             setUser(post.userID);
             setLikedBy(post.isLikedBy);
             setComments(comments);
+            setLoading(false)
         }
         
     })
@@ -42,6 +46,8 @@ export default function IndividualPost(props) {
         setCommented(true)
     }
     return (
+        <>
+        {loading ? <div className={classes.center}><Loader color="white"/></div> : (
         <div className={classes.home} style={{background:"black",  maxWidth: "100%"}}>
             <Left logout={props.logout}/>
             <div className={classes.Main}>
@@ -87,5 +93,7 @@ export default function IndividualPost(props) {
             <Right/>
             
         </div>
+        )}
+        </>
     )
 }

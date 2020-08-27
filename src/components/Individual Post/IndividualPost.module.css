@@ -122,6 +122,14 @@
     grid-area: "right";
 }
 
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: black;
+}
 @media screen and (max-width:1015px){
     .home{
         grid-template-columns: 0fr 4fr 0fr;
