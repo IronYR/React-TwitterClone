@@ -49,6 +49,7 @@ export default function IndividualPost(props) {
     // function isDeleted(){
     //     props.history.goBack();
     // }
+    let currentUser = JSON.parse(localStorage.getItem("user"));
     return (
         <>
         {loading ? <div className={classes.center}><Loader color="white"/></div> : (
@@ -79,7 +80,7 @@ export default function IndividualPost(props) {
                         </div>
                         <div className={classes.postInteractions}>
                             <Likes liked={isCommented} postID={post._id} isLiked={likedBy.includes(userID) ? true : false}/>
-                            <Delete postID={post._id} deleted={props.deleted} liked={isCommented}/>
+                            {currentUser.username == user.username && <Delete postID={post._id} deleted={props.deleted} liked={isCommented}/>}
                         </div>
 
                     </div>
