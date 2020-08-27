@@ -26,9 +26,9 @@ export function Authentication(props) {
     let signUpForm = ()=>(
         <form className={classes.login}>
             <Input name="email" type="email" label="Email" onInputHandler={inputsHandler}/>
+            <Input name="password" type="password" label="Password" onInputHandler={inputsHandler}/>
             <Input name="username" type="text" label="Username" onInputHandler={inputsHandler}/>
             <Input name="name" type="text" label="Name" onInputHandler={inputsHandler}/>
-            <Input name="password" type="password" label="Password" onInputHandler={inputsHandler}/>
         </form>
     );
     let loginForm= ()=>(

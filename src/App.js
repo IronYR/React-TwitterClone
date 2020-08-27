@@ -49,7 +49,7 @@ function App() {
       <Route path="/login" exact render={()=> <Authentication success={login} fail={failFunc} autoLogOut={autoLogOut} type="login" authDesc="Log in" buttonDesc="Log in" />}/>
       <Route path="/" exact component={Landing}/>
       <Redirect to="/"/>
-      <Route path="*" render={()=> <p>404 error</p>}/>
+      <Route path="*" render={()=> <p style={{textAlign: "center", width: "100%", fontSize:"3rem"}}>404 error. Reload to go back to home page.</p>}/>
     </Switch>
   )
   if(isAuth==="true"){
@@ -60,7 +60,7 @@ function App() {
         {/* <ProtectedRoute component={Home} path="/home" isAuth={isAuth} logout={logout} exact/> */}
         <Route path="/:username" exact render={(props)=><User {...props} logout={logout}/>}/>
         <Route path="/:username/:id" exact render={(props)=><IndividualPost {...props} logout={logout} deleted={postDeleted}/>}/>
-        <Route path="*" render={()=> <p>404 error</p>}/>
+        <Route path="*" render={()=> <p style={{textAlign: "center", width: "100%", fontSize:"2.3rem", height: "100vh"}}>404 error. Reload to go back to home page.</p>}/>
         <Redirect to="/home"/>
       </Switch>
     )
