@@ -8,6 +8,7 @@ import Post from '../UI/Post/Post'
 import { Link } from 'react-router-dom';
 import Likes from '../UI/Likes/Likes';
 import Loader from '../UI/Loader/Loader'
+import Delete from '../UI/Delete/Delete';
 export default function IndividualPost(props) {
     let [loading, setLoading] = useState(false);
     let [post, setPost] = useState({});
@@ -45,6 +46,9 @@ export default function IndividualPost(props) {
     function isCommented(){
         setCommented(true)
     }
+    // function isDeleted(){
+    //     props.history.goBack();
+    // }
     return (
         <>
         {loading ? <div className={classes.center}><Loader color="white"/></div> : (
@@ -75,6 +79,7 @@ export default function IndividualPost(props) {
                         </div>
                         <div className={classes.postInteractions}>
                             <Likes liked={isCommented} postID={post._id} isLiked={likedBy.includes(userID) ? true : false}/>
+                            <Delete postID={post._id} deleted={props.deleted} liked={isCommented}/>
                         </div>
 
                     </div>

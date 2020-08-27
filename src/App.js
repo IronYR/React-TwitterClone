@@ -29,6 +29,11 @@ function App() {
     window.history.pushState({}, null, "/");
     window.location.reload()
   }
+  function postDeleted(){
+    window.history.pushState({}, null, "/");
+    window.location.reload()
+    
+  }
   function failFunc(){
     localStorage.setItem("isAuth", "false");
     setIsAuth("false");
@@ -54,7 +59,7 @@ function App() {
         <Route path="/home" exact render={(props)=> <Home {...props} logout={logout}/>}/>
         {/* <ProtectedRoute component={Home} path="/home" isAuth={isAuth} logout={logout} exact/> */}
         <Route path="/:username" exact render={(props)=><User {...props} logout={logout}/>}/>
-        <Route path="/:username/:id" exact render={(props)=><IndividualPost {...props} logout={logout}/>}/>
+        <Route path="/:username/:id" exact render={(props)=><IndividualPost {...props} logout={logout} deleted={postDeleted}/>}/>
         <Route path="*" render={()=> <p>404 error</p>}/>
         <Redirect to="/home"/>
       </Switch>
