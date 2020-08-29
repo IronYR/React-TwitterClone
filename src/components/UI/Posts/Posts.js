@@ -3,6 +3,7 @@ import Post from '../Post/Post';
 import CreatePost from '../Create Post/CreatePost';
 import Header from '../Header/Header'
 import Loader from '../Loader/Loader';
+import classes from './Posts.module.css'
 export default function Posts(props) {
     let [loading, setLoading] = useState(false);
     let [userPic, setUserPic] = useState("");
@@ -41,7 +42,7 @@ export default function Posts(props) {
         alignItems: "center"
     }
     return (
-        <div style={{background:"black", border: "1px solid rgb(61, 59, 59)", maxWidth: "100%"}}>
+        <div className={classes.container}>
             <Header title="Home" showBackButton={false} logout={props.logout}/>
             <CreatePost done={created} userPic={userPic} type=""></CreatePost>
             {loading && <div style={center}><Loader color="white"/></div>}

@@ -72,7 +72,7 @@ export default function IndividualPost(props) {
                         </Link>
                         <div className={classes.postDesc}>{post.postDesc}</div>
                         <div className={classes.postMetaInfo}>
-                            {post.createdAt}
+                            {new Date(post.createdAt).toLocaleString()}
                         </div>
                         <div className={classes.postInteractionsCount}>
                             <span>{post.likes}</span>
