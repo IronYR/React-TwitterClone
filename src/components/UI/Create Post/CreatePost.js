@@ -48,7 +48,7 @@ export default function CreatePost(props) {
             </div>
             <div className={classes.main} >
                 <div className={classes.textField}>
-                    <textarea name="postContent" value={postDesc.desc} onChange={updateData}></textarea>
+                    <textarea name="postContent" value={postDesc.desc} onChange={updateData} onClick={(e)=>e.target.value=""}></textarea>
                 </div>
                 <div className={classes.extras}>
                     <button onClick={onFormSend} className={classes.tweetButton} >Tweet</button>
