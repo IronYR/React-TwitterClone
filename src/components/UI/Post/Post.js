@@ -37,7 +37,7 @@ export default function Post(props) {
                             <span>{props.likes}</span></> : null}
                         </div>
                     </div>
-                    </div>
+                </div>
 
             </div>
     )
