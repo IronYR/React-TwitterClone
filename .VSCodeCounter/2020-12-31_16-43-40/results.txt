@@ -1,0 +1,111 @@
+Date : 2020-12-31 16:43:40
+Directory : c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter
+Total : 59 files,  17087 codes, 466 comments, 369 blanks, all 17922 lines
+
+Languages
++----------------------+------------+------------+------------+------------+------------+
+| language             | files      | code       | comment    | blank      | total      |
++----------------------+------------+------------+------------+------------+------------+
+| JSON                 |          3 |     13,855 |          0 |          3 |     13,858 |
+| JavaScript           |         34 |      2,168 |        465 |        233 |      2,866 |
+| CSS                  |         18 |        944 |          1 |         68 |      1,013 |
+| Markdown             |          2 |         73 |          0 |         60 |        133 |
+| Golang HTML Template |          1 |         40 |          0 |          4 |         44 |
+| XML                  |          1 |          7 |          0 |          1 |          8 |
++----------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                      | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                         |         59 |     17,087 |        466 |        369 |     17,922 |
+| config                                                                                                                    |          9 |        810 |        371 |         96 |      1,277 |
+| config\jest                                                                                                               |          2 |         40 |          7 |          9 |         56 |
+| public                                                                                                                    |          2 |         65 |          0 |          5 |         70 |
+| scripts                                                                                                                   |          3 |        334 |         50 |         49 |        433 |
+| src                                                                                                                       |         41 |      1,975 |         45 |        157 |      2,177 |
+| src\components                                                                                                            |         32 |      1,723 |          7 |        128 |      1,858 |
+| src\components\Authentication                                                                                             |          2 |        195 |          0 |          9 |        204 |
+| src\components\Home                                                                                                       |          2 |         51 |          0 |         10 |         61 |
+| src\components\Individual Post                                                                                            |          2 |        226 |          4 |         14 |        244 |
+| src\components\Landing Page                                                                                               |          2 |        155 |          0 |         11 |        166 |
+| src\components\UI                                                                                                         |         22 |        844 |          3 |         63 |        910 |
+| src\components\UI\Create Post                                                                                             |          2 |        134 |          0 |         11 |        145 |
+| src\components\UI\Delete                                                                                                  |          2 |         39 |          0 |          3 |         42 |
+| src\components\UI\Edit User                                                                                               |          2 |        143 |          0 |          8 |        151 |
+| src\components\UI\Header                                                                                                  |          2 |         65 |          1 |          3 |         69 |
+| src\components\UI\Input                                                                                                   |          2 |         19 |          0 |          1 |         20 |
+| src\components\UI\LeftSideBar                                                                                             |          2 |         47 |          0 |          7 |         54 |
+| src\components\UI\Likes                                                                                                   |          2 |         82 |          0 |          7 |         89 |
+| src\components\UI\Loader                                                                                                  |          2 |         56 |          0 |          2 |         58 |
+| src\components\UI\Post                                                                                                    |          2 |        155 |          1 |         12 |        168 |
+| src\components\UI\Posts                                                                                                   |          2 |         71 |          1 |          4 |         76 |
+| src\components\UI\RightSideBar                                                                                            |          2 |         33 |          0 |          5 |         38 |
+| src\components\User                                                                                                       |          2 |        252 |          0 |         21 |        273 |
++---------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------------+----------------------+------------+------------+------------+------------+
+| filename                                                                                                                  | language             | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------+----------------------+------------+------------+------------+------------+
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\README.md                                                | Markdown             |         37 |          0 |         32 |         69 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\config\env.js                                            | JavaScript           |         58 |         33 |         11 |        102 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\config\getHttpsConfig.js                                 | JavaScript           |         51 |          7 |          9 |         67 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\config\jest\cssTransform.js                              | JavaScript           |          9 |          3 |          3 |         15 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\config\jest\fileTransform.js                             | JavaScript           |         31 |          4 |          6 |         41 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\config\modules.js                                        | JavaScript           |         81 |         35 |         26 |        142 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\config\paths.js                                          | JavaScript           |         51 |         10 |         12 |         73 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\config\pnpTs.js                                          | JavaScript           |         32 |          0 |          4 |         36 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\config\webpack.config.js                                 | JavaScript           |        442 |        209 |         19 |        670 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\config\webpackDevServer.config.js                        | JavaScript           |         55 |         70 |          6 |        131 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\package-lock.json                                        | JSON                 |     13,688 |          0 |          1 |     13,689 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\package.json                                             | JSON                 |        142 |          0 |          1 |        143 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\problem.md                                               | Markdown             |         36 |          0 |         28 |         64 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\public\index.html                                        | Golang HTML Template |         40 |          0 |          4 |         44 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\public\manifest.json                                     | JSON                 |         25 |          0 |          1 |         26 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\scripts\build.js                                         | JavaScript           |        167 |         23 |         22 |        212 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\scripts\start.js                                         | JavaScript           |        131 |         20 |         16 |        167 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\scripts\test.js                                          | JavaScript           |         36 |          7 |         11 |         54 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\App.css                                              | CSS                  |         14 |          0 |          2 |         16 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\App.js                                               | JavaScript           |         78 |          0 |          3 |         81 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\App.test.js                                          | JavaScript           |          8 |          0 |          2 |         10 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\Authentication\Authentication.js          | JavaScript           |        119 |          0 |          6 |        125 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\Authentication\Authentication.module.css  | CSS                  |         76 |          0 |          3 |         79 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\Home\Home.js                              | JavaScript           |         25 |          0 |          4 |         29 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\Home\Home.module.css                      | CSS                  |         26 |          0 |          6 |         32 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\Individual Post\IndividualPost.js         | JavaScript           |         96 |          4 |          6 |        106 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\Individual Post\IndividualPost.module.css | CSS                  |        130 |          0 |          8 |        138 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\Landing Page\Landing.js                   | JavaScript           |         32 |          0 |          3 |         35 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\Landing Page\Landing.module.css           | CSS                  |        123 |          0 |          8 |        131 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Create Post\CreatePost.js              | JavaScript           |         58 |          0 |          2 |         60 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Create Post\CreatePost.module.css      | CSS                  |         76 |          0 |          9 |         85 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Delete\Delete.js                       | JavaScript           |         26 |          0 |          2 |         28 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Delete\Delete.module.css               | CSS                  |         13 |          0 |          1 |         14 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Edit User\Edit.js                      | JavaScript           |         78 |          0 |          4 |         82 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Edit User\Edit.module.css              | CSS                  |         65 |          0 |          4 |         69 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Header\Header.js                       | JavaScript           |         11 |          1 |          1 |         13 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Header\Header.module.css               | CSS                  |         54 |          0 |          2 |         56 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Input\Input.js                         | JavaScript           |          9 |          0 |          1 |         10 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Input\Input.module.css                 | CSS                  |         10 |          0 |          0 |         10 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\LeftSideBar\LeftBar.js                 | JavaScript           |          8 |          0 |          6 |         14 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\LeftSideBar\LeftBar.module.css         | CSS                  |         39 |          0 |          1 |         40 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Likes\Likes.js                         | JavaScript           |         69 |          0 |          6 |         75 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Likes\Likes.module.css                 | CSS                  |         13 |          0 |          1 |         14 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Loader\Loader.js                       | JavaScript           |         21 |          0 |          1 |         22 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Loader\Loader.module.css               | CSS                  |         35 |          0 |          1 |         36 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Post\Post.js                           | JavaScript           |         42 |          0 |          8 |         50 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Post\Post.module.css                   | CSS                  |        113 |          1 |          4 |        118 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Posts\Posts.js                         | JavaScript           |         60 |          1 |          3 |         64 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\Posts\Posts.module.css                 | CSS                  |         11 |          0 |          1 |         12 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\RightSideBar\RightBar.js               | JavaScript           |          7 |          0 |          3 |         10 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\UI\RightSideBar\RightBar.module.css       | CSS                  |         26 |          0 |          2 |         28 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\User\User.js                              | JavaScript           |        144 |          0 |          8 |        152 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\components\User\User.module.css                      | CSS                  |        108 |          0 |         13 |        121 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\index.css                                            | CSS                  |         12 |          0 |          2 |         14 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\index.js                                             | JavaScript           |         12 |          3 |          3 |         18 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\logo.svg                                             | XML                  |          7 |          0 |          1 |          8 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\protectedRoutes.js                                   | JavaScript           |         22 |          0 |          2 |         24 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\serviceWorker.js                                     | JavaScript           |         98 |         31 |         13 |        142 |
+| c:\Users\yreha\OneDrive\Desktop\Projects\Web Development\twitter\src\setupTests.js                                        | JavaScript           |          1 |          4 |          1 |          6 |
+| Total                                                                                                                     |                      |     17,087 |        466 |        369 |     17,922 |
++---------------------------------------------------------------------------------------------------------------------------+----------------------+------------+------------+------------+------------+

@@ -1,59 +1,73 @@
-import React, {useState} from 'react'
-import classes from './CreatePost.module.css'
+import React, { useState } from "react";
+import classes from "./CreatePost.module.css";
 export default function CreatePost(props) {
-    let token = localStorage.getItem("token");
-    let [postDesc, setPostDesc] = useState({desc: "Whats happening?"});
-    const tx = document.getElementsByTagName('textarea');
-    for (let i = 0; i < tx.length; i++) {
-    tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
+  let token = localStorage.getItem("token");
+  let [postDesc, setPostDesc] = useState({ desc: "Whats happening?" });
+  const tx = document.getElementsByTagName("textarea");
+  for (let i = 0; i < tx.length; i++) {
+    tx[i].setAttribute(
+      "style",
+      "height:" + tx[i].scrollHeight + "px;overflow-y:hidden;"
+    );
     tx[i].addEventListener("input", OnInput, false);
-    }
-    function OnInput() {
-      this.style.height = 'auto';
-      this.style.height = (this.scrollHeight) + 'px';
-    }
-    let uri = props.type;
-    function onFormSend(e){
-        props.done();
+  }
+  function OnInput() {
+    this.style.height = "auto";
+    this.style.height = this.scrollHeight + "px";
+  }
+  let uri = props.type;
+  function onFormSend(e) {
+    props.done();
 
-        fetch("https://my-rest-api-twitter.herokuapp.com/"+uri, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                "Authorization": 'Bearer ' + token
-            },
-            body: JSON.stringify({
-                postContent: postDesc.desc,
-                postID: props.postID,
-                userID: props.userID
-            })
-        }).then(res=>{
-            return res.json()
-        }).then(result=>{
-            if(props.reload === "true"){
-            window.location.reload()
-            }
-        }).catch(err=>{
-            console.log(err)
-        })
-    }
-    function updateData(e){
-        setPostDesc({desc: e.target.value})
-    }
-    return (
-        <div className={classes.createPost}>
-            <div className={classes.img}>
-                <img src={props.userPic} alt=""></img>
-            </div>
-            <div className={classes.main} >
-                <div className={classes.textField}>
-                    <textarea name="postContent" value={postDesc.desc} onChange={updateData} onClick={(e)=>e.target.value=""}></textarea>
-                </div>
-                <div className={classes.extras}>
-                    <button onClick={onFormSend} className={classes.tweetButton} >Tweet</button>
-                </div>
-            </div>
+    fetch("https://my-rest-api-twitter.herokuapp.com/" + uri, {
+      mode: "no-cors",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify({
+        postContent: postDesc.desc,
+        postID: props.postID,
+        userID: props.userID,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((result) => {
+        if (props.reload === "true") {
+          window.location.reload();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  function updateData(e) {
+    setPostDesc({ desc: e.target.value });
+  }
+  return (
+    <div className={classes.createPost}>
+      <div className={classes.img}>
+        <img src={props.userPic} alt=""></img>
+      </div>
+      <div className={classes.main}>
+        <div className={classes.textField}>
+          <textarea
+            name="postContent"
+            value={postDesc.desc}
+            onChange={updateData}
+            onClick={(e) => (e.target.value = "")}
+          ></textarea>
         </div>
-    )
+        <div className={classes.extras}>
+          <button onClick={onFormSend} className={classes.tweetButton}>
+            Tweet
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
