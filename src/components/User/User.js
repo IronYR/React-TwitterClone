@@ -13,12 +13,15 @@ export default function User(props) {
   let [posts, setPosts] = useState([]);
   let [isFollowing, setIsFollowing] = useState([]);
   let [click, setClick] = useState(false);
+  let url = "https://my-rest-api-twitter.herokuapp.com";
+  url = "https://rest-api-twitter.onrender.com";
+
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://my-rest-api-twitter.herokuapp.com/follow/${
-        props.match.params.username
-      }/${localStorage.getItem("userID")}`,
+      `${url}/follow/${props.match.params.username}/${localStorage.getItem(
+        "userID"
+      )}`,
       {
         method: "GET",
         mode: "no-cors",
@@ -55,9 +58,9 @@ export default function User(props) {
       setIsFollowing(follower.isFollowing);
 
       fetch(
-        `https://my-rest-api-twitter.herokuapp.com/follow/${
-          props.match.params.username
-        }/${localStorage.getItem("userID")}`,
+        `${url}/follow/${props.match.params.username}/${localStorage.getItem(
+          "userID"
+        )}`,
         {
           method: "POST",
           mode: "no-cors",
@@ -84,9 +87,9 @@ export default function User(props) {
       setIsFollowing(follower.isFollowing);
 
       fetch(
-        `https://my-rest-api-twitter.herokuapp.com/follow/${
-          props.match.params.username
-        }/${localStorage.getItem("userID")}`,
+        `${url}/follow/${props.match.params.username}/${localStorage.getItem(
+          "userID"
+        )}`,
         {
           method: "POST",
           mode: "no-cors",

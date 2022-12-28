@@ -16,14 +16,14 @@ export default function IndividualPost(props) {
   let [user, setUser] = useState({});
   let [likedBy, setLikedBy] = useState([]);
   let [commented, setCommented] = useState(false);
+  let url = "https://my-rest-api-twitter.herokuapp.com";
+  url = "https://rest-api-twitter.onrender.com";
+
   useEffect(() => {
     let isMounted = true;
     setLoading(true);
     fetch(
-      "https://my-rest-api-twitter.herokuapp.com/" +
-        props.match.params.username +
-        "/" +
-        props.match.params.id,
+      url + "/" + props.match.params.username + "/" + props.match.params.id,
       {
         method: "GET",
         mode: "no-cors",

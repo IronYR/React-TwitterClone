@@ -8,19 +8,19 @@ export default function Edit(props) {
   let [img, setImg] = useState({});
   let [name, setName] = useState("");
   let [desc, setDesc] = useState("");
+  let url = "https://my-rest-api-twitter.herokuapp.com";
+  url = "https://rest-api-twitter.onrender.com";
+
   useEffect(() => {
     let isMounted = true;
-    fetch(
-      "https://my-rest-api-twitter.herokuapp.com/edit/" + props.match.params.id,
-      {
-        mode: "no-cors",
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    )
+    fetch(url + "/edit/" + props.match.params.id, {
+      mode: "no-cors",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((result) => {
         return result.json();
       })
@@ -49,14 +49,11 @@ export default function Edit(props) {
     formData.append("image", img);
     formData.append("desc", desc);
     props.history.goBack();
-    fetch(
-      "https://my-rest-api-twitter.herokuapp.com/edit/" + props.match.params.id,
-      {
-        mode: "no-cors",
-        method: "POST",
-        body: formData,
-      }
-    )
+    fetch(url + "/edit/" + props.match.params.id, {
+      mode: "no-cors",
+      method: "POST",
+      body: formData,
+    })
       .then((result) => {
         return result.json();
       })

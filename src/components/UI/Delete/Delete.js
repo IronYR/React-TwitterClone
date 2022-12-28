@@ -1,8 +1,11 @@
 import React from "react";
 import classes from "./Delete.module.css";
 export default function Delete(props) {
+  let url = "https://my-rest-api-twitter.herokuapp.com";
+  url = "https://rest-api-twitter.onrender.com";
+
   function deletePost() {
-    fetch("https://my-rest-api-twitter.herokuapp.com/delete/" + props.postID, {
+    fetch(url + "/delete/" + props.postID, {
       mode: "no-cors",
       method: "GET",
       headers: {

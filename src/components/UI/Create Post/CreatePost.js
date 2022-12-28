@@ -4,6 +4,9 @@ export default function CreatePost(props) {
   let token = localStorage.getItem("token");
   let [postDesc, setPostDesc] = useState({ desc: "Whats happening?" });
   const tx = document.getElementsByTagName("textarea");
+  let url = "https://my-rest-api-twitter.herokuapp.com";
+  url = "https://rest-api-twitter.onrender.com";
+
   for (let i = 0; i < tx.length; i++) {
     tx[i].setAttribute(
       "style",
@@ -19,7 +22,7 @@ export default function CreatePost(props) {
   function onFormSend(e) {
     props.done();
 
-    fetch("https://my-rest-api-twitter.herokuapp.com/" + uri, {
+    fetch(url + "/" + uri, {
       mode: "no-cors",
       method: "POST",
       headers: {

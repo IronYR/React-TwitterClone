@@ -13,9 +13,12 @@ export default function Posts(props) {
   let locToken = localStorage.getItem("token");
   let [token, setToken] = useState(locToken);
   let userID = localStorage.getItem("userID");
+  let url = "https://my-rest-api-twitter.herokuapp.com";
+  url = "https://rest-api-twitter.onrender.com";
+
   useEffect(() => {
     setLoading(true);
-    fetch("https://my-rest-api-twitter.herokuapp.com/?userID=" + userID, {
+    fetch(url + "/?userID=" + userID, {
       method: "GET",
       mode: "no-cors",
       headers: {

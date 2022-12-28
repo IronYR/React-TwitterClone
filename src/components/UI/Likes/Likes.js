@@ -2,18 +2,18 @@ import React from "react";
 import classes from "./Likes.module.css";
 export default function Likes(props) {
   let currentUser = localStorage.getItem("userID");
+  let url = "https://my-rest-api-twitter.herokuapp.com";
+  url = "https://rest-api-twitter.onrender.com";
+
   function onLike() {
-    fetch(
-      `https://my-rest-api-twitter.herokuapp.com/likes?postID=${props.postID}&userID=${currentUser}`,
-      {
-        method: "GET",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    )
+    fetch(`${url}/likes?postID=${props.postID}&userID=${currentUser}`, {
+      method: "GET",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((res) => {
         return res.json();
       })
@@ -34,7 +34,7 @@ export default function Likes(props) {
             let newLikedPosts = user.likedPosts.splice(ind, 1);
             user.likedPosts = newLikedPosts;
           }
-          fetch("https://my-rest-api-twitter.herokuapp.com/likes", {
+          fetch(url + "/likes", {
             method: "POST",
             mode: "no-cors",
             headers: {
@@ -57,7 +57,7 @@ export default function Likes(props) {
           post.isLikedBy.push(user._id);
           post.likes++;
           user.likedPosts.push(post._id);
-          fetch("https://my-rest-api-twitter.herokuapp.com/likes", {
+          fetch(url + "/likes", {
             method: "POST",
             mode: "no-cors",
             headers: {

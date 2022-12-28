@@ -12,6 +12,8 @@ export function Authentication(props) {
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
   let [name, setName] = useState("");
+  let url = "https://my-rest-api-twitter.herokuapp.com";
+  url = "https://rest-api-twitter.onrender.com";
   function inputsHandler(e, type) {
     if (type === "email") {
       setEmail(e.target.value);
@@ -74,7 +76,7 @@ export function Authentication(props) {
     formData.append("name", name);
     formData.append("username", username);
     formData.append("password", password);
-    fetch("https://my-rest-api-twitter.herokuapp.com/signup", {
+    fetch(url + "/signup", {
       mode: "no-cors",
       method: "POST",
       body: formData,
@@ -96,7 +98,7 @@ export function Authentication(props) {
   }
   function onLogin() {
     setLoading(true);
-    fetch("https://my-rest-api-twitter.herokuapp.com/login", {
+    fetch(url + "/login", {
       mode: "no-cors",
       method: "POST",
       headers: {
