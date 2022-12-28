@@ -77,7 +77,7 @@ export function Authentication(props) {
     formData.append("username", username);
     formData.append("password", password);
     fetch(url + "/signup", {
-      mode: "no-cors",
+      // mode: "no-cors",
       method: "POST",
       body: formData,
     })
@@ -99,7 +99,7 @@ export function Authentication(props) {
   function onLogin() {
     setLoading(true);
     fetch(url + "/login", {
-      mode: "no-cors",
+      // mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
