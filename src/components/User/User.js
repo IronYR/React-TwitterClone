@@ -24,7 +24,7 @@ export default function User(props) {
       )}`,
       {
         method: "GET",
-        mode: "no-cors",
+        // mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
@@ -63,7 +63,7 @@ export default function User(props) {
         )}`,
         {
           method: "POST",
-          mode: "no-cors",
+          // mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
@@ -92,7 +92,7 @@ export default function User(props) {
         )}`,
         {
           method: "POST",
-          mode: "no-cors",
+          // mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",

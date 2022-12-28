@@ -14,7 +14,7 @@ export default function Edit(props) {
   useEffect(() => {
     let isMounted = true;
     fetch(url + "/edit/" + props.match.params.id, {
-      mode: "no-cors",
+      // mode: "no-cors",
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export default function Edit(props) {
     formData.append("desc", desc);
     props.history.goBack();
     fetch(url + "/edit/" + props.match.params.id, {
-      mode: "no-cors",
+      // mode: "no-cors",
       method: "POST",
       body: formData,
     })

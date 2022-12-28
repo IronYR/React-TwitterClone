@@ -6,7 +6,7 @@ export default function Delete(props) {
 
   function deletePost() {
     fetch(url + "/delete/" + props.postID, {
-      mode: "no-cors",
+      // mode: "no-cors",
       method: "GET",
       headers: {
         "Content-Type": "application/json",

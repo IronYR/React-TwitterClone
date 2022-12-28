@@ -26,7 +26,7 @@ export default function IndividualPost(props) {
       url + "/" + props.match.params.username + "/" + props.match.params.id,
       {
         method: "GET",
-        mode: "no-cors",
+        // mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",

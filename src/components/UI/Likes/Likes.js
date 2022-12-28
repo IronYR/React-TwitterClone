@@ -8,7 +8,7 @@ export default function Likes(props) {
   function onLike() {
     fetch(`${url}/likes?postID=${props.postID}&userID=${currentUser}`, {
       method: "GET",
-      mode: "no-cors",
+      // mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -36,7 +36,7 @@ export default function Likes(props) {
           }
           fetch(url + "/likes", {
             method: "POST",
-            mode: "no-cors",
+            // mode: "no-cors",
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
@@ -59,7 +59,7 @@ export default function Likes(props) {
           user.likedPosts.push(post._id);
           fetch(url + "/likes", {
             method: "POST",
-            mode: "no-cors",
+            // mode: "no-cors",
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",

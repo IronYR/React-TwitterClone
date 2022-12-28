@@ -20,7 +20,7 @@ export default function Posts(props) {
     setLoading(true);
     fetch(url + "/?userID=" + userID, {
       method: "GET",
-      mode: "no-cors",
+      // mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

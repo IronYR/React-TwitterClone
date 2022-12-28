@@ -23,7 +23,7 @@ export default function CreatePost(props) {
     props.done();
 
     fetch(url + "/" + uri, {
-      mode: "no-cors",
+      // mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
